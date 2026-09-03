@@ -3,9 +3,9 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pyclif"
+name = "clif-format"
 version = "0.1.0"
-description = "Official Python parser, serializer, validator and converter for CLIF 1.0"
+description = "Official Python parser, serializer, validator and converter for CLIF 1.0 (import name: pyclif)"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }

@@ -16,7 +16,7 @@ The parser, serializer, validator, and converters target CLIF 1.0 and are checke
 ## Installation
 
 ```bash
-pip install pyclif
+pip install clif-format
 ```
 
 For development:
@@ -157,7 +157,7 @@ Importers coerce foreign identifiers into valid CLIF names (lowercase kebab-case
 Install optional converter dependencies with:
 
 ```bash
-pip install "pyclif[converters]"
+pip install "clif-format[converters]"
 ```
 
 ## Conversion samples
