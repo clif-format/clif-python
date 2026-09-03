@@ -9,7 +9,7 @@ class ClifParseError(ClifError):
     """Raised when CLIF text cannot be parsed into a document.
 
     ``category`` uses the same diagnostic categories as
-    :class:`~pyclif.model.ValidationIssue`.
+    :class:`~clif_format.model.ValidationIssue`.
     """
 
     def __init__(

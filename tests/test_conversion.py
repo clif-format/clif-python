@@ -5,7 +5,7 @@ from pathlib import Path
 import pytest
 from conftest import REPO_ROOT
 
-from pyclif import from_json, load, serialize, to_json
+from clif_format import from_json, load, serialize, to_json
 
 SAMPLE_DIR = REPO_ROOT / "examples" / "clif_to_json"
 

@@ -252,7 +252,7 @@ def _parse_list(text: str, key: str) -> list[str]:
 def _check_extension_value(text: str) -> str:
     """Validate an x- extension value and return its raw text unchanged.
 
-    Extension values are opaque to pyclif: the spec requires parsers to ignore
+    Extension values are opaque to clif_format: the spec requires parsers to ignore
     them without changing their meaning, so the raw source text is preserved
     and re-emitted verbatim by the serializer. Only well-formedness is checked.
     """
@@ -437,7 +437,7 @@ def parse(text: str, *, path: str | Path | None = None) -> ClifDocument:
 
     Raises :class:`ClifParseError` when the input is not well-formed enough
     to build the data model. Semantic validation is intentionally separate;
-    use :func:`pyclif.validate` for the full validator.
+    use :func:`clif_format.validate` for the full validator.
     """
     doc = ClifDocument(path=Path(path) if path is not None else None)
     lines = _normalize_lines(text)

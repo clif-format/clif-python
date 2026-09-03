@@ -3,9 +3,9 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "clif-format"
+name = "clif-python"
 version = "0.1.0"
-description = "Official Python parser, serializer, validator and converter for CLIF 1.0 (import name: pyclif)"
+description = "Official Python parser, serializer, validator and converter for CLIF 1.0 (import name: clif_format)"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
@@ -38,13 +38,13 @@ converters = [
 ]
 
 [project.scripts]
-pyclif = "pyclif.cli:main"
+clif = "clif_format.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-pyclif = ["py.typed"]
+clif_format = ["py.typed"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -59,7 +59,7 @@ select = ["E", "F", "I", "UP", "B"]
 
 [tool.mypy]
 python_version = "3.11"
-files = ["src/pyclif"]
+files = ["src/clif_format"]
 ignore_missing_imports = true
 warn_unused_ignores = true
 warn_redundant_casts = true

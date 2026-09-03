@@ -1,8 +1,8 @@
-# pyclif
+# clif_format
 
 Official Python implementation for [CLIF 1.0](https://github.com/clif-format/clif) — the Contextual Localization Integrated Format.
 
-`pyclif` provides the core pieces needed by a Python localization toolchain:
+`clif_format` provides the core pieces needed by a Python localization toolchain:
 
 - **Parser** — read CLIF text/files into a typed Python data model.
 - **Serializer** — write the data model back as canonical CLIF.
@@ -16,7 +16,7 @@ The parser, serializer, validator, and converters target CLIF 1.0 and are checke
 ## Installation
 
 ```bash
-pip install clif-format
+pip install clif-python
 ```
 
 For development:
@@ -30,7 +30,7 @@ pip install -e ".[dev]"
 ## Quick start
 
 ```python
-import pyclif
+import clif_format
 
 text = '''CLIF 1.0
 namespace: demo
@@ -47,15 +47,15 @@ target: "分辨率"
 status: final
 '''
 
-doc = pyclif.parse(text)
+doc = clif_format.parse(text)
 print(doc.header.namespace)          # demo
 print(doc.groups[0].path)            # video
 print(doc.groups[0].entries[0].id)   # resolution
 print(doc.groups[0].entries[0].target)
 
-print(pyclif.serialize(doc))
+print(clif_format.serialize(doc))
 
-issues = pyclif.validate(text)
+issues = clif_format.validate(text)
 for issue in issues:
     print(issue.line, issue.category, issue.message)
 ```
@@ -63,12 +63,12 @@ for issue in issues:
 ## Command line
 
 ```bash
-pyclif parse path/to/file.clif
-pyclif serialize path/to/file.clif
-pyclif validate path/to/file.clif
-pyclif convert path/to/file.clif --format po
-pyclif convert path/to/file.po --from po --format clif
-pyclif convert path/to/terms.clif --format xliff --xliff-version 2.2
+clif_format parse path/to/file.clif
+clif_format serialize path/to/file.clif
+clif_format validate path/to/file.clif
+clif_format convert path/to/file.clif --format po
+clif_format convert path/to/file.po --from po --format clif
+clif_format convert path/to/terms.clif --format xliff --xliff-version 2.2
 ```
 
 Supported convert formats: `clif`, `json`, `yaml`, `csv`, `po`, `xliff`, `fluent`, `android`, `ios`.
@@ -79,14 +79,14 @@ Supported convert formats: `clif`, `json`, `yaml`, `csv`, `po`, `xliff`, `fluent
 
 | Function | Description |
 | --- | --- |
-| `pyclif.parse(text, path=None)` | Parse CLIF text into `ClifDocument`. |
-| `pyclif.load(path)` | Read and parse a `.clif` file. |
-| `pyclif.serialize(doc)` | Serialize a `ClifDocument` to canonical CLIF text. |
-| `pyclif.validate(text, check_width=False)` | Validate CLIF text and return `list[ValidationIssue]`. |
-| `pyclif.validate_document(doc, check_width=False)` | Validate an already parsed document. |
-| `pyclif.effective_context / effective_type / effective_emotion / effective_max_width` | Resolve a group-inherited value for one entry. |
-| `pyclif.to_dict(doc)` / `pyclif.from_dict(data)` | Convert between `ClifDocument` and a JSON-shaped dict. |
-| `pyclif.to_json(doc)` / `pyclif.from_json(text)` | Convert between `ClifDocument` and JSON text. |
+| `clif_format.parse(text, path=None)` | Parse CLIF text into `ClifDocument`. |
+| `clif_format.load(path)` | Read and parse a `.clif` file. |
+| `clif_format.serialize(doc)` | Serialize a `ClifDocument` to canonical CLIF text. |
+| `clif_format.validate(text, check_width=False)` | Validate CLIF text and return `list[ValidationIssue]`. |
+| `clif_format.validate_document(doc, check_width=False)` | Validate an already parsed document. |
+| `clif_format.effective_context / effective_type / effective_emotion / effective_max_width` | Resolve a group-inherited value for one entry. |
+| `clif_format.to_dict(doc)` / `clif_format.from_dict(data)` | Convert between `ClifDocument` and a JSON-shaped dict. |
+| `clif_format.to_json(doc)` / `clif_format.from_json(text)` | Convert between `ClifDocument` and JSON text. |
 
 ## Converter support
 
@@ -105,12 +105,12 @@ API example:
 
 ```python
 # CLIF -> other format
-po_text = pyclif.to_po(doc)
-yaml_text = pyclif.to_yaml(doc)
+po_text = clif_format.to_po(doc)
+yaml_text = clif_format.to_yaml(doc)
 
 # other format -> CLIF
-doc = pyclif.from_po(po_text)
-doc = pyclif.from_yaml(yaml_text)
+doc = clif_format.from_po(po_text)
+doc = clif_format.from_yaml(yaml_text)
 ```
 
 ### Metadata channels
@@ -157,7 +157,7 @@ Importers coerce foreign identifiers into valid CLIF names (lowercase kebab-case
 Install optional converter dependencies with:
 
 ```bash
-pip install "clif-format[converters]"
+pip install "clif-python[converters]"
 ```
 
 ## Conversion samples
@@ -190,13 +190,13 @@ pytest tests/test_conversion.py
 clif-python/
 ├── pyproject.toml
 ├── src/
-│   └── pyclif/
+│   └── clif_format/
 │       ├── model.py         # dataclasses for the CLIF data model
 │       ├── parser.py        # single-pass line parser
 │       ├── serializer.py    # canonical serializer
 │       ├── validator.py     # semantic validation and inheritance helpers
 │       ├── converter.py     # bidirectional format converters
-│       └── cli.py           # pyclif command line
+│       └── cli.py           # clif_format command line
 ├── tools/
 │   └── regenerate_examples.py
 ├── examples/

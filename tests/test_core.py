@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from pyclif import (
+from clif_format import (
     ClifParseError,
     from_dict,
     from_json,

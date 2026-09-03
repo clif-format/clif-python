@@ -14,7 +14,7 @@ class Header:
 
     "extensions" maps each x- key to the raw CLIF value text exactly as written
     in the document. Extensions are opaque: the specification requires parsers
-    to ignore them without altering their meaning, so pyclif preserves the
+    to ignore them without altering their meaning, so clif_format preserves the
     source text and the serializer re-emits it verbatim.
     """
 

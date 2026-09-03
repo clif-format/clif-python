@@ -1,4 +1,4 @@
-"""pyclif - official Python implementation for CLIF 1.0."""
+"""clif_format - official Python implementation for CLIF 1.0."""
 
 from .converter import (
     XLIFF_VERSIONS,

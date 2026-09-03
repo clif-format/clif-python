@@ -5,8 +5,8 @@ from pathlib import Path
 import pytest
 from conftest import CLIF_TEST_FIXTURES, require_sibling
 
-from pyclif import parse, validate
-from pyclif.errors import ClifParseError
+from clif_format import parse, validate
+from clif_format.errors import ClifParseError
 
 VALID_PATHS = require_sibling(CLIF_TEST_FIXTURES / "valid", "clif-test/valid")
 INVALID_PATHS = require_sibling(CLIF_TEST_FIXTURES / "invalid", "clif-test/invalid")

@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from pyclif import (
+from clif_format import (
     XLIFF_VERSIONS,
     ClifDocument,
     from_android_strings,
@@ -27,8 +27,8 @@ from pyclif import (
     to_yaml,
     validate,
 )
-from pyclif.errors import ClifError
-from pyclif.validator import effective_context
+from clif_format.errors import ClifError
+from clif_format.validator import effective_context
 
 SAMPLE = Path(__file__).resolve().parents[1] / "examples" / "clif_to_json" / "settings.zh-CN.clif"
 
@@ -397,7 +397,7 @@ def test_csv_with_shifted_fields_raises_a_clif_error() -> None:
     int() would raise ValueError from deep inside the converter, which tells a
     caller nothing; the error must name the column and the line instead.
     """
-    from pyclif import ClifError
+    from clif_format import ClifError
 
     header = (
         "namespace,clan,source-language,target-language,version,variant,title,info,"

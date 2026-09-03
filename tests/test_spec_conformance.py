@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from pyclif import (
+from clif_format import (
     Entry,
     Group,
     effective_context,
@@ -17,8 +17,8 @@ from pyclif import (
     serialize,
     validate,
 )
-from pyclif.errors import ClifParseError
-from pyclif.validator import _display_cells
+from clif_format.errors import ClifParseError
+from clif_format.validator import _display_cells
 
 HEADER = (
     "CLIF 1.0\n"

@@ -5,7 +5,7 @@ from pathlib import Path
 import pytest
 from conftest import SPEC_EXAMPLES, require_sibling
 
-from pyclif import parse, serialize, validate
+from clif_format import parse, serialize, validate
 
 EXAMPLE_PATHS = require_sibling(SPEC_EXAMPLES, "clif")
 

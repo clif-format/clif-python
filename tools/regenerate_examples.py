@@ -23,7 +23,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "src"))
 
-from pyclif import (  # noqa: E402  - path setup must precede the import
+from clif_format import (  # noqa: E402  - path setup must precede the import
     ClifDocument,
     from_android_strings,
     from_csv,

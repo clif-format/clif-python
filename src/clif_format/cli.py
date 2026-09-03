@@ -145,7 +145,7 @@ def _cmd_convert(args: argparse.Namespace) -> int:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        prog="pyclif",
+        prog="clif_format",
         description="CLIF 1.0 Python parser, serializer, validator and converter",
     )
     sub = parser.add_subparsers(dest="command", required=True)
@@ -208,7 +208,7 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 1
     except Exception as exc:  # noqa: BLE001 - CLI should report the error cleanly
-        print(f"pyclif: error: {exc}", file=sys.stderr)
+        print(f"clif_format: error: {exc}", file=sys.stderr)
         return 2
 
 
