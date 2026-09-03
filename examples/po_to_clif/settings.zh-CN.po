@@ -1,0 +1,12 @@
+msgid ""
+msgstr ""
+"Language: zh-CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgctxt "video.resolution"
+msgid "Resolution"
+msgstr "分辨率"
+
+msgctxt "video.fullscreen"
+msgid "Fullscreen"
+msgstr "全屏"

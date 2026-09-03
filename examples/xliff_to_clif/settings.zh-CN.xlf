@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2">
+  <file original="settings" source-language="en-US" target-language="zh-CN" datatype="plaintext">
+    <body>
+      <group id="video">
+        <trans-unit id="resolution">
+          <source>Resolution</source>
+          <target>分辨率</target>
+        </trans-unit>
+        <trans-unit id="fullscreen">
+          <source>Fullscreen</source>
+          <target>全屏</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

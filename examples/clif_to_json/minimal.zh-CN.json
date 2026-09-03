@@ -1,0 +1,22 @@
+{
+  "header": {
+    "namespace": "demo",
+    "clan": "minimal",
+    "source-language": "en-US",
+    "target-language": "zh-CN"
+  },
+  "groups": [
+    {
+      "path": "video",
+      "type": "label",
+      "entries": [
+        {
+          "id": "resolution",
+          "source": "Resolution",
+          "target": "分辨率",
+          "status": "final"
+        }
+      ]
+    }
+  ]
+}

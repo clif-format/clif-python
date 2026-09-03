@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - name: Check out pyclif
+        uses: actions/checkout@v4
+        with:
+          path: clif-python
+
+      # The specification examples and the conformance fixtures live in sibling
+      # repositories. Without them the dependent tests would collect nothing.
+      - name: Check out the specification
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          repository: ${{ github.repository_owner }}/clif
+          path: clif
+
+      - name: Check out the conformance suite
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          repository: ${{ github.repository_owner }}/clif-test
+          path: clif-test
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install
+        working-directory: clif-python
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: Lint
+        working-directory: clif-python
+        run: ruff check src tests
+
+      - name: Type check
+        working-directory: clif-python
+        run: mypy
+
+      - name: Test
+        working-directory: clif-python
+        env:
+          # Fail loudly if a sibling checkout is missing instead of skipping.
+          CLIF_REQUIRE_SIBLINGS: ${{ hashFiles('clif/spec/**') != '' && '1' || '0' }}
+        run: pytest
+
+      - name: Examples are up to date
+        working-directory: clif-python
+        run: python tools/regenerate_examples.py --check

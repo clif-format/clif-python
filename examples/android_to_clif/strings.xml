@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="resolution">分辨率</string>
+  <string name="fullscreen">全屏</string>
+</resources>
